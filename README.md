@@ -6,7 +6,7 @@
 
 > **For an Indian adult trying to keep their blood sugar or weight in check: type or speak one messy line about your day, and Saathi turns it into a log, a short reply and one small goal for tomorrow.**
 
-- **Live app:** [https://…]
+- **Live app:** https://saathi-health-jet.vercel.app/ (opens without sign-up: tap "Try it as a guest")
 - **Report:** [REPORT.md](REPORT.md)
 
 ## Run it on your computer
