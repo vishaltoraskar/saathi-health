@@ -1,0 +1,446 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Saathi Health</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="notice">Not medical advice. This app does not diagnose or prescribe. For chest pain, fainting or breathing trouble, call <b>108</b> or see a doctor.</div>
+
+  <main>
+    <header>
+      <h1>Saathi Health</h1>
+      <div id="topLinks" class="hidden">
+        <span id="whoAmI" class="muted"></span>
+        <button id="settingsBtn" class="link">Settings</button>
+        <button id="logoutBtn" class="link">Log out</button>
+      </div>
+    </header>
+
+    <!-- Login -->
+    <section id="login" class="card hidden">
+      <div class="login-hero">🌿</div>
+      <h2>Welcome to Saathi Health</h2>
+      <p class="muted">Your daily health buddy. Log in with your name and a 4-digit PIN. New here? The same form creates your account.</p>
+      <label>Your name <input id="loginName" placeholder="e.g. Ramesh" autocomplete="username"></label>
+      <label>4-digit PIN <input id="loginPin" type="password" inputmode="numeric" maxlength="4" placeholder="••••" autocomplete="current-password"></label>
+      <p id="loginError" class="error hidden"></p>
+      <div class="row">
+        <button id="loginBtn">Log in / Create account</button>
+      </div>
+      <div class="or">or</div>
+      <button id="guestBtn" class="secondary wide">Try it as a guest (no sign-up)</button>
+      <p class="muted small-note">Your data stays only on this device. The PIN keeps family members on a shared phone apart; it is not bank-level security.</p>
+    </section>
+
+    <!-- Step 1: first visit -->
+    <section id="welcome" class="card hidden">
+      <h2>Namaste! Two quick questions.</h2>
+      <label>Your name <input id="nameInput" placeholder="e.g. Ramesh"></label>
+      <div class="grid3">
+        <label>Age <input id="ageInput" type="number" min="18" max="100" placeholder="e.g. 52"></label>
+        <label>Weight (kg) <input id="weightInput" type="number" min="25" max="250" placeholder="e.g. 72"></label>
+        <label>Height (cm) <input id="heightInput" type="number" min="100" max="230" placeholder="e.g. 165"></label>
+      </div>
+      <label class="check"><input id="consentInput" type="checkbox"> I agree that Saathi keeps my health notes on this device only. I understand it is not medical advice.</label>
+      <p id="welcomeError" class="error hidden"></p>
+      <p>What do you want help with?</p>
+      <div class="chips" id="goalChips">
+        <button data-goal="sugar">Keep my sugar in control</button>
+        <button data-goal="weight">Lose a little weight</button>
+        <button data-goal="active">Walk more every day</button>
+      </div>
+    </section>
+
+    <!-- Main screen -->
+    <section id="home" class="hidden">
+      <nav id="tabs" class="tabs">
+        <button data-tab="today" class="on">🏠<span>Today</span></button>
+        <button data-tab="activity">👟<span>Activity</span></button>
+        <button data-tab="coach">💬<span>Coach</span></button>
+        <button data-tab="progress">📊<span>Progress</span></button>
+        <button data-tab="social">👥<span>Social</span></button>
+        <button data-tab="badges">🏅<span>Badges</span></button>
+        <button data-tab="profile">👤<span>Profile</span></button>
+      </nav>
+
+      <div id="tab-today" class="tab">
+      <div class="card nudge">
+        <div class="buddy">
+          <div id="mascot" class="mascot">🌿</div>
+          <div id="nudge"></div>
+        </div>
+      </div>
+
+      <div class="card plant-card">
+        <div id="plant" class="plant">🌱</div>
+        <div>
+          <h2 id="plantTitle">Your tulsi plant</h2>
+          <p id="plantText" class="muted"></p>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Tell me about your day</h2>
+        <p class="muted">Type or speak, in any mix of English, Hindi or Konkani. Or tap the quick buttons.</p>
+        <div class="chips small quick" id="quick"></div>
+        <textarea id="dayInput" rows="3" placeholder="e.g. aaj 2 chapati dal khaya, 20 min walk, sugar 140"></textarea>
+        <div class="row">
+          <button id="micBtn" class="secondary" title="Speak">🎤 Speak</button>
+          <button id="sendBtn">Save my day</button>
+        </div>
+        <details>
+          <summary>Try an example</summary>
+          <div class="chips small" id="examples"></div>
+        </details>
+      </div>
+
+      <div id="alert" class="card alert hidden"></div>
+      <div id="reply" class="card reply hidden"></div>
+
+      <div class="card">
+        <h2>How do you feel?</h2>
+        <div class="moods" id="moods">
+          <button data-mood="great">😄<span>Great</span></button>
+          <button data-mood="good">🙂<span>Good</span></button>
+          <button data-mood="okay">😐<span>Okay</span></button>
+          <button data-mood="low">😔<span>Low</span></button>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Water today <span id="waterCount" class="muted"></span></h2>
+        <div class="glasses" id="glasses"></div>
+        <p class="muted">Tap a glass each time you drink one.</p>
+      </div>
+
+      <div class="card">
+        <h2>Today</h2>
+        <ul id="todayList" class="list"></ul>
+      </div>
+
+      <div class="card">
+        <h2>Last 7 days</h2>
+        <div id="week" class="week"></div>
+      </div>
+      </div>
+
+      <!-- Activity: quick entry, workouts, GPS, file import -->
+      <div id="tab-activity" class="tab hidden">
+        <div class="card">
+          <h2>Quick add</h2>
+          <div class="row">
+            <button id="addGlassBtn" class="secondary">🥛 +1 glass water</button>
+            <button id="addWalkBtn" class="secondary">🚶 15 min walk</button>
+          </div>
+          <div class="row inline">
+            <label>Slept last night (hours) <input id="sleepInput" type="number" min="0" max="16" step="0.5" placeholder="e.g. 7"></label>
+            <button id="saveSleepBtn">Save sleep</button>
+          </div>
+          <p>How tired do you feel today?</p>
+          <div id="fatigueBtns" class="seg fatigue">
+            <button data-f="1">😄 1<span>Fresh</span></button>
+            <button data-f="2">🙂 2<span>Fine</span></button>
+            <button data-f="3">😐 3<span>A bit tired</span></button>
+            <button data-f="4">😩 4<span>Tired</span></button>
+            <button data-f="5">🥵 5<span>Exhausted</span></button>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>Log a workout</h2>
+          <div class="grid3">
+            <label>Type
+              <select id="woType"><option>Walk</option><option>Run</option><option>Cycle</option><option>Yoga</option></select>
+            </label>
+            <label>Distance (km) <input id="woKm" type="number" min="0" max="300" step="0.1" placeholder="e.g. 6.5"></label>
+            <label>Time (minutes) <input id="woMin" type="number" min="1" max="600" placeholder="e.g. 40"></label>
+          </div>
+          <p id="woError" class="error hidden"></p>
+          <div class="row"><button id="woSaveBtn">Save workout</button></div>
+        </div>
+
+        <div class="card">
+          <h2>Track with GPS</h2>
+          <p class="muted">Keep this page open while you walk, run or cycle. Your route stays on this device.</p>
+          <div class="row inline">
+            <label>Type <select id="gpsType"><option>Walk</option><option>Run</option><option>Cycle</option></select></label>
+            <button id="gpsBtn">▶ Start</button>
+          </div>
+          <div id="gpsLive" class="gps hidden">
+            <div class="stats3">
+              <div><b id="gpsTime">0:00</b><span>time</span></div>
+              <div><b id="gpsKm">0.00</b><span>km</span></div>
+              <div><b id="gpsPace">–</b><span>min/km</span></div>
+            </div>
+            <p id="gpsStatus" class="muted"></p>
+            <div id="gpsRoute"></div>
+            <ul id="gpsSplits" class="list"></ul>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>Import from Strava, Apple Health or Google Fit</h2>
+          <p class="muted">Export a workout as a <b>.gpx</b> or <b>.tcx</b> file from that app, then pick it here. You can pick several at once.</p>
+          <details>
+            <summary>How do I export?</summary>
+            <ul class="muted help">
+              <li><b>Strava:</b> open an activity → ⋯ menu → Export GPX.</li>
+              <li><b>Apple Health:</b> Profile → Export All Health Data. Unzip it; your routes are in the <i>workout-routes</i> folder.</li>
+              <li><b>Google Fit:</b> takeout.google.com → Fit → download. Your workouts are .tcx files in <i>Activities</i>.</li>
+            </ul>
+          </details>
+          <input id="importFile" type="file" accept=".gpx,.tcx" multiple>
+          <p id="importResult" class="muted"></p>
+        </div>
+
+        <div class="card">
+          <h2>Recent workouts</h2>
+          <ul id="workoutList" class="list"></ul>
+        </div>
+      </div>
+
+      <!-- Coach: AI health assistant -->
+      <div id="tab-coach" class="tab hidden">
+        <div class="card nudge">
+          <h2>This week's check-in</h2>
+          <div id="coachCheckin"></div>
+        </div>
+        <div class="card">
+          <h2>Training block</h2>
+          <div id="blockBox"></div>
+        </div>
+        <div class="card">
+          <h2>Ask your coach</h2>
+          <div id="chatLog" class="chat"></div>
+          <div class="chips small" id="coachChips"></div>
+          <div class="row">
+            <input id="chatInput" placeholder="e.g. Should I rest tomorrow?" maxlength="300">
+            <button id="chatSend">Send</button>
+          </div>
+          <p class="muted small">General tips only, not medical advice. The coach never suggests medicines or doses. <button id="chatClear" class="link small">Clear chat</button></p>
+        </div>
+      </div>
+
+      <!-- Social: events, squads, leaderboard -->
+      <div id="tab-social" class="tab hidden">
+        <div class="card">
+          <h2>Upcoming events in Goa</h2>
+          <p class="muted small">Sample events, made up for this demo.</p>
+          <div class="row inline">
+            <label>Town
+              <select id="evCity"><option value="">All of Goa</option><option>Panaji</option><option>Margao</option><option>Mapusa</option><option>Vasco</option><option>Verna</option><option>Calangute</option></select>
+            </label>
+            <label>Type
+              <select id="evType"><option value="">All</option><option>Run</option><option>Walk</option><option>Cycle</option><option>Yoga</option></select>
+            </label>
+          </div>
+          <div id="eventList" class="events"></div>
+        </div>
+
+        <div class="card">
+          <h2>My squad</h2>
+          <div id="squadBox"></div>
+        </div>
+
+        <div class="card">
+          <h2>This week's leaderboard</h2>
+          <div id="lbBtns" class="seg">
+            <button data-lb="km" class="on">Distance</button>
+            <button data-lb="days">Consistency</button>
+          </div>
+          <ol id="leaderboard" class="board"></ol>
+        </div>
+
+        <div class="card">
+          <h2>Squad routes</h2>
+          <div id="squadRoutes" class="routes"></div>
+        </div>
+
+        <div class="card">
+          <h2>Share my progress</h2>
+          <p class="muted">Make a code with this week's numbers and your latest route. Send it to a friend (e.g. on WhatsApp); they paste it into their squad. Nothing else is shared.</p>
+          <div class="row">
+            <button id="makeCodeBtn">Make my code</button>
+            <button id="copyCodeBtn" class="secondary hidden">Copy</button>
+          </div>
+          <textarea id="myCode" class="hidden" rows="3" readonly></textarea>
+        </div>
+      </div>
+
+      <!-- Progress: charts and weekly summary -->
+      <div id="tab-progress" class="tab hidden">
+        <div class="card">
+          <h2>This week vs last week</h2>
+          <div id="wow" class="tiles"></div>
+        </div>
+        <div class="card">
+          <h2 id="chartTitle">Last 14 days</h2>
+          <div id="metricBtns" class="seg">
+            <button data-m="minutes" class="on">Active min</button>
+            <button data-m="water">Water</button>
+            <button data-m="sleep">Sleep</button>
+            <button data-m="km">Distance</button>
+          </div>
+          <div id="chart" class="chart"></div>
+          <details>
+            <summary>Show as a table</summary>
+            <table id="chartTable" class="table"></table>
+          </details>
+        </div>
+        <div class="card">
+          <h2>Plan vs actual</h2>
+          <div id="varBox"></div>
+        </div>
+        <div class="card">
+          <h2>Weekly digests 📬</h2>
+          <div id="digestBox"></div>
+        </div>
+        <div class="card">
+          <h2>Weekly summary</h2>
+          <pre id="summaryText" class="summary"></pre>
+          <div class="row">
+            <button id="emailSummaryBtn">✉ Email it to me</button>
+            <button id="copySummaryBtn" class="secondary">Copy</button>
+            <button id="downloadSummaryBtn" class="secondary">Download</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Badges -->
+      <div id="tab-badges" class="tab hidden">
+        <div class="card streak">
+          <div class="streak-num" id="streakNum">0</div>
+          <div><h2>Day streak 🔥</h2><p id="streakText" class="muted"></p></div>
+        </div>
+        <div class="card">
+          <h2>Your badges <span id="badgeCount" class="muted"></span></h2>
+          <div id="badgeGrid" class="badges"></div>
+        </div>
+        <div class="card">
+          <h2>Personal bests</h2>
+          <ul id="pbList" class="list"></ul>
+        </div>
+        <div class="card">
+          <h2>Trophy cabinet 🏆</h2>
+          <div id="trophyList"></div>
+          <details id="trophyForm">
+            <summary>Add a race result</summary>
+            <label>Race name <input id="trName" maxlength="60" placeholder="e.g. Miramar Sunrise 5K"></label>
+            <div class="grid3">
+              <label>Date <input id="trDate" type="date"></label>
+              <label>Distance (km) <input id="trKm" type="number" min="0.5" max="200" step="0.1" placeholder="e.g. 5"></label>
+              <label>Finish time <input id="trTime" placeholder="mm:ss or h:mm:ss"></label>
+            </div>
+            <label>Medal
+              <select id="trMedal">
+                <option value="finisher">🏅 Finisher</option><option value="gold">🥇 Gold</option>
+                <option value="silver">🥈 Silver</option><option value="bronze">🥉 Bronze</option>
+              </select>
+            </label>
+            <p id="trError" class="error hidden"></p>
+            <div class="row"><button id="trSave">Add to cabinet</button></div>
+          </details>
+        </div>
+      </div>
+
+      <!-- Profile, reminders, privacy -->
+      <div id="tab-profile" class="tab hidden">
+        <div class="card">
+          <h2>My profile</h2>
+          <label>Name <input id="pName"></label>
+          <div class="grid3">
+            <label>Age <input id="pAge" type="number" min="18" max="100"></label>
+            <label>Weight (kg) <input id="pWeight" type="number" min="25" max="250"></label>
+            <label>Height (cm) <input id="pHeight" type="number" min="100" max="230"></label>
+          </div>
+          <label>My goal
+            <select id="pGoal">
+              <option value="sugar">Keep my sugar in control</option>
+              <option value="weight">Lose a little weight</option>
+              <option value="active">Walk more every day</option>
+            </select>
+          </label>
+          <p id="bmiText" class="muted"></p>
+          <p id="profileError" class="error hidden"></p>
+          <div class="row"><button id="saveProfileBtn">Save profile</button></div>
+        </div>
+
+        <div class="card">
+          <h2>Daily reminder</h2>
+          <p class="muted">A notification at this time if you haven't logged today. It works while Saathi is open in a browser tab.</p>
+          <div class="row inline">
+            <label>Time <input id="remTime" type="time" value="20:00"></label>
+            <button id="remBtn">Turn on</button>
+          </div>
+          <p id="remStatus" class="muted"></p>
+        </div>
+
+        <div class="card">
+          <h2>Export to CSV</h2>
+          <p class="muted">Open these in Excel or Google Sheets to make your own charts.</p>
+          <div class="row">
+            <button id="csvWorkouts" class="secondary">⬇ Workouts</button>
+            <button id="csvDaily" class="secondary">⬇ Daily wellness</button>
+            <button id="csvRaces" class="secondary">⬇ Race results</button>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>Privacy</h2>
+          <ul class="muted help">
+            <li>Everything stays in this browser on this device. Nothing is sent to a server.</li>
+            <li>Your PIN is never saved, only a slow, salted hash of it.</li>
+            <li>5 wrong PINs lock the account for 1 minute. You are logged out after 15 minutes of no use.</li>
+            <li>Only the text you type is sent to Gemini, and only if you add a key in Settings.</li>
+          </ul>
+          <p id="consentText" class="muted"></p>
+          <div class="row">
+            <button id="exportBtn" class="secondary">⬇ Download my data</button>
+            <button id="withdrawBtn" class="danger">Withdraw consent &amp; delete my data</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Settings -->
+    <section id="settings" class="card hidden">
+      <h2>Settings</h2>
+      <p class="muted">The app works without a key (demo mode, rule-based). Add a free Google Gemini key to use real AI. The key stays only in this browser.</p>
+      <label>Gemini API key <input id="keyInput" type="password" placeholder="optional"></label>
+      <div class="row">
+        <button id="saveKeyBtn">Save</button>
+        <button id="resetBtn" class="danger">Delete all my data</button>
+        <button id="closeSettingsBtn" class="secondary">Close</button>
+      </div>
+      <p id="modeText" class="muted"></p>
+      <h2 class="gap">Company wellness (HR)</h2>
+      <p class="muted">For HR teams running company-wide health challenges. HR only ever sees department totals.</p>
+      <button id="adminBtn" class="secondary">🏢 Open HR admin panel</button>
+    </section>
+
+    <!-- HR admin panel (B2B) -->
+    <section id="admin" class="hidden">
+      <div class="card">
+        <div class="row spread">
+          <h2>🏢 HR admin panel</h2>
+          <button id="adminClose" class="secondary">Back to my app</button>
+        </div>
+        <p class="muted">Company-wide wellness at a glance. Employees share a code from their Social tab. You see department totals only, never one person's data, and departments with fewer than 3 people are hidden.</p>
+      </div>
+      <div id="adminRoot"></div>
+    </section>
+  </main>
+
+  <div id="burst" class="burst"></div>
+  <div id="toast" class="toast hidden"></div>
+  <script src="app.js"></script>
+  <script src="features.js"></script>
+  <script src="coach.js"></script>
+  <script src="social.js"></script>
+  <script src="training.js"></script>
+  <script src="corporate.js"></script>
+</body>
+</html>
