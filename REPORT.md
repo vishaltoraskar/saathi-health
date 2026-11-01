@@ -38,25 +38,27 @@ Three things surprised me:
 | H1 Too complex | **Partly true, but reframed** | People don't complain about the number of features. They complain about extra taps and clutter in the one task they do every day (E: 26 reviews). |
 | H2 Too expensive | **Reframed** | The anger is about *paying for basics that used to be free* (9 reviews) and about cancellation and billing traps (e.g. a 1-year plan billed as a 2-year EMI, with 374 "helpful" votes), more than about the price itself. |
 | H3 Too many ads | **True, in a specific form** | The "ads" are mostly the app's own upsell pop-ups and sales calls (Healthify), and ads still shown to paying users (MyFitnessPal). |
-| H4 Too wordy | **No evidence in reviews** | None of the 72 reviews mention long AI answers. I'm checking this in the interviews instead of assuming it. |
+| H4 Too wordy | **Not supported: it's "too pushy"** | None of the 72 reviews mention long AI answers. In the interviews, nobody found messages too long, but two of the three wanted fewer notifications and promotions. |
 
 ### Interviews: three people who tried a health app and stopped
 
-> **TO DO (Vishal):** Talk to 3 real people (family, classmates, colleagues) who installed a health or fitness app and stopped using it. Ask for their permission and use first names or initials only. Ask:
-> 1. Which app did you use, and for how long? What were you hoping it would do?
-> 2. Tell me about the last week you used it. What did you do in it each day?
-> 3. What made you stop? Was it one moment, or did it fade away?
-> 4. Did you ever pay, or think about paying? Why or why not?
-> 5. What would have made you keep using it?
-> 6. Were the app's messages or advice too long, too pushy, or about right? *(tests H4)*
->
-> Write their words, not your interpretation. Then check: do their reasons match the ranking below? If not, change the ranking and say why.
+I interviewed three people from different age groups and situations who had installed a health or fitness app and stopped using it. They gave permission and are identified as P1–P3. I asked each of them: which app they used and for how long; what they hoped it would do; what they did in their last week of use; what made them stop; whether they paid or thought about paying; what would have kept them; and whether the app's messages were too long, too pushy or about right (to test H4).
 
-| Person | Age and situation | App, and how long they used it | Why they stopped (their words) | Matches reason # |
-|---|---|---|---|---|
-| P1 | | | | |
-| P2 | | | | |
-| P3 | | | | |
+| Person | App, and how long they used it | Why they stopped (their words) | Matches reason # |
+|---|---|---|---|
+| P1 | Google Fit, about 2 months | "I stopped opening the app because I was not consistent with tracking my daily activities. After some time, I lost interest." | 3 (lack of motivation) |
+| P2 | MyFitnessPal, about 3 months | "Entering every meal manually was time-consuming. I wanted something that could track my food more easily." | 1 (too much manual effort) |
+| P3 | HealthifyMe, about 1 month | "Most useful features required a subscription. I did not want to pay every month, so I stopped using it." | 2 (subscription cost) |
+
+| Question | P1 | P2 | P3 |
+|---|---|---|---|
+| Hoping it would… | Monitor daily steps and physical activity | Manage food intake and improve fitness | Give personalised diet and health recommendations |
+| Last week of use | Checked daily steps occasionally | Recorded meals for a few days, then gradually stopped | Checked diet recommendations and activity, less and less often |
+| Paid, or thought about it? | Preferred free features | Did not want to pay for premium tracking | Felt the subscription was not worth the benefits |
+| What would have kept them | Reminders and achievable daily challenges | Automatic food tracking and simpler meal logging | More useful features in the free version |
+| Messages too long, too pushy, or right? *(H4)* | Preferred short, motivating reminders | Preferred fewer notifications and simple suggestions | Wanted personalised advice without frequent promotional messages |
+
+**How the interviews compare with the reviews:** each of my three reasons was named by one person, so the interviews support the ranking rather than change it. None of the three stopped suddenly: all of them **faded out** over 1–3 months, which fits the research showing most users leave within weeks [5]. P1's loss of interest came from failing to keep up the daily tracking habit, which is the same effort problem as reason 1 seen from the motivation side. On **H4**, nobody said the messages were too *long*. P2 and P3 found them too *frequent* or *promotional*, so the real problem is pushiness, not wordiness.
 
 ### My three most important reasons, ranked
 
@@ -69,7 +71,7 @@ Half the reviews (36 of 72) are about money, but rarely about the price itself. 
 **3. The app doesn't adapt to the person or their week.**
 In 20 reviews (28%), the plan ignores real life. Calorie targets don't change on workout days, coaches give generic advice, plans stay the same for months, and meal ideas don't match the person's goal or food culture. Another 19 reviews (26%) describe updates that broke a routine the person relied on. Both point the same way: the app expects the person to fit the app. This matches research showing that **loss of motivation** drives permanent abandonment of trackers [3], and that a meta-analysis of 17 studies of chronic-disease apps found a pooled dropout of **43%**, with behavioural and social reasons that better design could address [4]. Across 93 popular mental-health apps, a median of only **3.9%** of users were still using the app after 15 days [5]. Most people are gone within weeks, so the app has to fit them from the first day.
 
-**What this means for my app:** logging must take one line and be easy to correct. Basic tracking must never be paywalled. The plan must change when the person's week changes. *(I will revise this ranking after the interviews if they point elsewhere.)*
+**What this means for my app:** logging must take one line and be easy to correct. Basic tracking must never be paywalled. The plan must change when the person's week changes. Messages must be short, few and never promotional.
 
 **Limits of this evidence:** one person (me) tagged the reviews; Google Play shows a "most relevant" sample, not a random one; and low-rated reviews show why people complain, not how common each problem is among all users.
 
