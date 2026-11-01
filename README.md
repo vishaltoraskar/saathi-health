@@ -2,7 +2,7 @@
 
 # Saathi Health
 
-**Vishal Toraskar** · Roll No. **[roll number]** · MAI-594 Introduction to Vibe Coding · AY 2026–27
+**Vishal Vasudev Toraskar** · Roll No. **PGDMAI-25-15** · MAI-594 Introduction to Vibe Coding · AY 2026–27
 
 > **For an Indian adult trying to keep their blood sugar or weight in check: type or speak one messy line about your day, and Saathi turns it into a log, a short reply and one small goal for tomorrow.**
 
