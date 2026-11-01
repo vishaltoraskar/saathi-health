@@ -190,7 +190,7 @@ Every decision follows from Q1: logging must be quick and trustworthy (reason 1)
 
 **1. Who tested it?**
 
-The application was tested by Vishal Vasudev Toraskar, aged 22, who is a college student. The tester was selected because they were interested in improving their daily health and fitness habits.
+The application was tested by Vasudev Toraskar, aged 50, who is a working professional. The tester was selected because they were interested in improving their daily health and fitness habits.
 
 **2. What did they do?**
 
