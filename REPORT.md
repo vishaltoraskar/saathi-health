@@ -188,6 +188,41 @@ Every decision follows from Q1: logging must be quick and trustworthy (reason 1)
 
 **Who tested it, what they did, what confused them, and what I changed:**
 
+**1. Who tested it?**
+
+The application was tested by a [first name/initial], aged [age], who is a [college student/working professional]. The tester was selected because they were interested in improving their daily health and fitness habits.
+
+**2. What did they do?**
+
+The tester:
+
+- Entered their basic details and health goals.
+- Explored the daily health dashboard.
+- Tried the AI health assistant by entering questions.
+- Checked the suggested daily health plan.
+- Tried the water-tracking feature.
+
+**3. What confused them?**
+
+The tester found that:
+
+- Some features needed clearer explanations.
+- It was not immediately clear that the AI assistant uses predefined responses.
+- The food photo option did not automatically recognise meals.
+
+**4. What did I change?**
+
+Based on the feedback:
+
+- Improved the clarity of feature descriptions.
+- Added clearer guidance for using the AI assistant.
+- Explained that food photos are not automatically analysed and users should describe their meals.
+- Made the health and safety disclaimer more visible.
+
+**Conclusion:**
+
+The user testing helped identify areas where the application could be improved. The feedback highlighted the importance of simple navigation, clear instructions and realistic AI capabilities. These improvements can make the application easier to understand and use.
+
 ## References
 
 1. Krebs, P. & Duncan, D. T. (2015). Health app use among US mobile phone owners: A national survey. *JMIR mHealth and uHealth*, 3(4), e101. https://mhealth.jmir.org/2015/4/e101/ (open access: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4704953/)
