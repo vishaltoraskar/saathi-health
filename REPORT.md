@@ -240,7 +240,7 @@ The user testing helped identify areas where the application could be improved. 
 2. I have not submitted this work, in whole or in part, for assessment in any other course.
 3. I have used generative AI tools only as permitted by the project brief, and I have disclosed that use below.
 
-**Name:** Vishal Vasudev Toraskar · **Roll No.:** PGDMAI-25-15 · **Date:** [ ]
+**Name:** Vishal Vasudev Toraskar · **Roll No.:** PGDMAI-25-15 · **Date:** 31/10/2026
 
 **AI-use disclosure**
 
