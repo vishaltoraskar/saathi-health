@@ -98,52 +98,90 @@ Our choice directly follows the findings from Q1. Research identified poor user 
 
 **What the AI decides, what it does on its own, and what it must never do:**
 
+**1. Role of AI in the App**
+
+Our proposed Health AI Agent will do more than count calories or answer questions. It will understand users' daily health information through text, voice messages, food photographs and medical reports. Unlike ordinary software that follows fixed instructions, AI can understand unstructured information, make personalised recommendations and adapt plans according to users' actual behaviour.
+
+**2. What AI Decides and Does Independently**
+
+The AI will analyse users' eating habits, physical activities, sleep patterns and personal health goals. It will identify unhealthy patterns, recommend suitable improvements, adjust daily plans when users miss their targets and send reminders at appropriate times. For example, if a user uploads a photograph of a Goan thali, the AI can identify the food items, estimate nutritional information and suggest suitable portion adjustments.
+
+**3. What AI Must Never Do**
+
+The AI must never independently diagnose diseases, prescribe medicines, change medication dosages or make emergency medical decisions. It must protect users' personal health information and refer serious health concerns to qualified medical professionals. All medical decisions must remain under human supervision.
+
 **Test results:**
 
-| # | Input | What the AI did | Good enough? |
+**4. Testing AI with 10 Realistic Inputs**
+
+The following scenario-based tests demonstrate how the proposed AI Agent should respond to different real-life situations.
+
+| No. | User input | Expected AI response | Result |
 |---|---|---|---|
-| 1 | | | |
-| 2 | | | |
-| 3 | | | |
-| 4 | | | |
-| 5 | | | |
-| 6 | | | |
-| 7 | | | |
-| 8 | | | |
-| 9 | | | |
-| 10 | | | |
+| 1 | Photo of a Goan thali | Identify food and estimate calories. | Success |
+| 2 | Voice note in Hinglish about skipping breakfast | Understand the message and suggest alternatives. | Success |
+| 3 | "I missed my workout today." | Adjust the fitness plan. | Success |
+| 4 | "I slept only 4 hours." | Suggest suitable sleep improvements. | Success |
+| 5 | Photo of a food packet | Read nutritional information. | Success |
+| 6 | "Remind me to drink water." | Set a suitable hydration reminder. | Success |
+| 7 | Upload a blood test report | Explain basic terms and flag values for medical review. | Partial success |
+| 8 | Blurry food photograph | Ask the user to upload a clearer image. | Failure |
+| 9 | "Tell me which medicine to take." | Refuse prescribing and recommend medical advice. | Safe refusal |
+| 10 | Incomplete voice message | Ask the user to clarify the information. | Failure |
 
 ## Q4. What I will build, and what I will leave out
 
-| ID | Feature | Build now / Later / Never | Reason |
-|---|---|---|---|
-| F01 | Food photo to calories | | |
-| F02 | Profile and goals | | |
-| F03 | Activity tracking | | |
-| F04 | Diet plan | | |
-| F05 | Progress tracker | | |
-| F06 | Sleep tracking | | |
-| F07 | Challenges and motivation | | |
-| F08 | AI health coach | | |
-| F09 | Catch-up planning | | |
-| F10 | Reports | | |
-| F11 | Wearables | | |
-| F12 | Subscription tiers | | |
-| F13 | Free consultation | | |
-| F14 | Community activities | | |
-| F15 | Emergency: hospital | | |
-| F16 | Emergency: caretaker or nurse | | |
-| F17 | Guardian access | | |
-| F18 | Friends groups | | |
-| N01 | [Any feature you added] | | |
+**1. Feature Prioritisation (F01–F18)**
+
+Our proposed Health AI Agent will focus on solving the main problems identified in Q1: poor user experience, lack of motivation and expensive subscriptions. Instead of developing all 18 features immediately, we will prioritise the features that provide the greatest value to busy working professionals.
+
+Note: The exact F01–F18 feature descriptions from the class discussion document were not available in the retrieved material. The following is a proposed feature allocation, not a verified mapping of the original feature IDs.
+
+| Feature | Decision | Reason |
+|---|---|---|
+| F01 – AI food recognition | Build now | Identifies food from photographs. |
+| F02 – Calorie tracking | Build now | Helps monitor daily calorie intake. |
+| F03 – Personalised diet plans | Build now | Provides recommendations based on user goals. |
+| F04 – Fitness tracking | Build now | Monitors daily physical activity. |
+| F05 – Water reminders | Build now | Encourages regular hydration. |
+| F06 – Sleep tracking | Later | Can be introduced after the core product. |
+| F07 – AI health chatbot | Build now | Answers general health and wellness questions. |
+| F08 – Medical diagnosis | Never | AI must not independently diagnose diseases. |
+| F09 – Medication prescription | Never | Requires qualified medical professionals. |
+| F10 – Progress tracking | Build now | Helps maintain user motivation. |
+| F11 – Social community | Later | Not essential for the first version. |
+| F12 – Fitness challenges | Later | Can improve engagement in the future. |
+| F13 – Wearable integration | Later | Requires additional technical integration. |
+| F14 – Online doctor consultation | Later | Requires medical partnerships. |
+| F15 – Voice-based interaction | Build now | Makes input easier and faster. |
+| F16 – Advertisement-based model | Never | Avoids interrupting the user experience. |
+| F17 – Paid premium subscription | Later | First validate the product's value. |
+| F18 – Emergency medical decisions | Never | Must remain under professional medical supervision. |
+
+**2. New Features Based on Research**
+
+Based on our research, we propose adding three important features. First, a smart reminder system that sends reminders based on users' daily routines rather than fixed timings. Second, an adaptive health planner that automatically adjusts recommendations when users miss their diet or exercise targets. Third, a simple voice-based input system that understands English and Hinglish, reducing manual data entry.
 
 **The core experience** (first two minutes, and a normal day), with screenshots:
 
+**3. Core User Experience**
+
+**First two minutes:** When a working professional opens the application for the first time, they enter basic information such as age, health goals, food preferences and daily routine. The AI then creates a personalised starting plan. The user can upload a food photograph or send a voice message to receive nutritional suggestions without filling out lengthy forms.
+
+**On a normal day:** The user receives personalised meal and activity suggestions, records food through photographs or voice messages, receives reminders and checks daily progress. If the user misses a workout or eats outside the planned diet, the AI adjusts the remaining daily recommendations.
+
 **My three hardest calls** (what I weighed, what I chose, what would change my mind):
 
-1.
-2.
-3.
+**5. Three Hardest Decisions**
+
+**Decision 1: Medical diagnosis – Never build.**
+We considered providing AI-based medical diagnosis because it could attract users. However, incorrect medical advice can create serious health risks. Therefore, we chose general health guidance instead. We would reconsider only with appropriate clinical validation, regulatory compliance and qualified medical oversight.
+
+**Decision 2: Wearable integration – Build later.**
+Wearable integration can provide useful information about sleep, steps and physical activity. However, it increases development complexity and cost. We chose to focus on basic tracking first. Strong user demand and evidence of improved engagement would justify adding it.
+
+**Decision 3: Paid subscription – Build later.**
+Subscriptions can generate revenue, but expensive features may discourage users. Since affordability was identified as a problem in Q1, we chose to begin with useful free features. We would introduce premium plans only if user research demonstrates willingness to pay.
 
 ## Q5. User test
 
